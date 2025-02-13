@@ -14,20 +14,41 @@ const SavedCandidates = () => {
   }
 
   return (
-    <div>
+    <div className="table-container">
       <h2>Saved Candidates</h2>
-      {savedCandidates.map((candidate) => (
-        <div key={candidate.id}>
-          <img src={candidate.avatar_url} alt={candidate.login} width="100" />
-          <h3>{candidate.name || candidate.login}</h3>
-          <p>Company: {candidate.company || "Not specified"}</p>
-          <p>Location: {candidate.location || "Not specified"}</p>
-          <a href={candidate.html_url} target="_blank">GitHub Profile</a>
-        </div>
-      ))}
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Avatar</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Profile</th>
+          </tr>
+        </thead>
+        <tbody>
+          {savedCandidates.map((candidate) => (
+            <tr key={candidate.id}>
+              <td>
+                <img src={candidate.avatar_url} alt={candidate.login} width="50" />
+              </td>
+              <td>{candidate.name || candidate.login}</td>
+              <td>{candidate.company || "Not specified"}</td>
+              <td>{candidate.location || "Not specified"}</td>
+              <td>
+                <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
+                  GitHub Profile
+                </a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
 
 export default SavedCandidates;
+
+
 

@@ -15,9 +15,12 @@ const CandidateSearch = () => {
   }, []);
 
   const saveCandidate = () => {
+    if (currentIndex >= candidates.length) return; // No candidate to save
+
     const saved = JSON.parse(localStorage.getItem("savedCandidates") || "[]");
     saved.push(candidates[currentIndex]);
     localStorage.setItem("savedCandidates", JSON.stringify(saved));
+
     nextCandidate();
   };
 
@@ -40,7 +43,9 @@ const CandidateSearch = () => {
           <h3>{candidate.name || candidate.login}</h3>
           <p>Company: {candidate.company || "Not specified"}</p>
           <p>Location: {candidate.location || "Not specified"}</p>
-          <a href={candidate.html_url} target="_blank">GitHub Profile</a>
+          <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
+            GitHub Profile
+          </a>
           <div>
             <button onClick={saveCandidate}>+</button>
             <button onClick={nextCandidate}>-</button>
@@ -52,3 +57,4 @@ const CandidateSearch = () => {
 };
 
 export default CandidateSearch;
+
