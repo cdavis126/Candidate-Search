@@ -1,43 +1,46 @@
-const searchGithub = async () => {
+import { Candidate } from "../interfaces/Candidate.interface";
+
+const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
+
+// Fetches a random list of GitHub users
+const searchGithub = async (): Promise<Candidate[]> => {
   try {
     const start = Math.floor(Math.random() * 100000000) + 1;
-    // console.log(import.meta.env);
-    const response = await fetch(
-      `https://api.github.com/users?since=${start}`,
-      {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
-        },
-      }
-    );
-    // console.log('Response:', response);
-    const data = await response.json();
+
+    const response = await fetch(`https://api.github.com/users?since=${start}`, {
+      headers: {
+        Authorization: `Bearer ${GITHUB_TOKEN}`,
+      },
+    });
+
     if (!response.ok) {
-      throw new Error('invalid API response, check the network tab');
+      throw new Error("Invalid API response");
     }
-    // console.log('Data:', data);
-    return data;
+
+    return await response.json();
   } catch (err) {
-    // console.log('an error occurred', err);
+    console.error("Error fetching users:", err);
     return [];
   }
 };
 
-const searchGithubUser = async (username: string) => {
+// Fetches a single GitHub user's details
+const searchGithubUser = async (username: string): Promise<Candidate | null> => {
   try {
     const response = await fetch(`https://api.github.com/users/${username}`, {
       headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+        Authorization: `Bearer ${GITHUB_TOKEN}`,
       },
     });
-    const data = await response.json();
+
     if (!response.ok) {
-      throw new Error('invalid API response, check the network tab');
+      throw new Error("Invalid API response");
     }
-    return data;
+
+    return await response.json();
   } catch (err) {
-    // console.log('an error occurred', err);
-    return {};
+    console.error("Error fetching user:", err);
+    return null;
   }
 };
 
