@@ -6,10 +6,11 @@
     "module": "NodeNext",
     "skipLibCheck": true,
 
-    /* Bundler mode */
+    /* Module Resolution */
     "moduleResolution": "NodeNext",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
+    "allowJs": true,  /* Fix: Ensures TypeScript doesn’t ignore .js/.ts files---DOES THIS WORK */
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
@@ -23,3 +24,4 @@
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
+

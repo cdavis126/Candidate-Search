@@ -1,4 +1,4 @@
-import { Candidate } from "../interfaces/Candidate.interface";
+import { Candidate } from "../interfaces/Candidate.interface.js";
 
 const GITHUB_TOKEN: string | undefined = import.meta.env.VITE_GITHUB_TOKEN;
 

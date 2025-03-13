@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { searchGithub } from "../api/API";
-import { Candidate } from "../interfaces/Candidate.interface";
+import { searchGithub } from "../api/API.js";
+import { Candidate } from "../interfaces/Candidate.interface.js";
 
 const CandidateSearch = () => {
   const [candidates, setCandidates] = useState<Candidate[]>([]);
