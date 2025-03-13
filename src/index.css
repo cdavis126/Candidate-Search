@@ -50,26 +50,33 @@ main {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding-top: 80px; /* Offset for fixed navbar */
+  padding-top: 100px; /* Offset for fixed navbar */
   background: linear-gradient(180deg, rgb(32, 44, 136) 0%, rgba(9, 9, 121, 1) 15%, rgba(0, 2, 18, 1) 100%);
   color: white;
   text-align: center;
 }
 
+/* Candidate Search Header */
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px; /* Added space between header and image */
+}
+
 /* Candidate Card - FINAL FIX */
 .card {
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
-  width: 400px;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+  width: 420px;
   text-align: center;
-  padding: 30px;
-  margin-top: 30px;
-  border: 3px solid rgba(255, 255, 255, 0.5);
+  padding: 35px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
 }
 
 .card img {
@@ -99,8 +106,8 @@ main {
 }
 
 button {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   font-size: 2rem;
   font-weight: bold;
@@ -113,13 +120,10 @@ button {
   color: white;
 }
 
-/* Ensure buttons display symbols correctly */
-button::before {
-  content: attr(data-symbol);
+button span {
+  display: block;
   font-size: 2rem;
   font-weight: bold;
-  line-height: 1;
-  text-align: center;
 }
 
 button:hover {
@@ -133,6 +137,7 @@ button:hover {
 .reject {
   background-color: #dc3545;
 }
+
 
 
 

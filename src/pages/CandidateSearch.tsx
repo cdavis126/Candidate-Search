@@ -35,11 +35,11 @@ const CandidateSearch = () => {
   const candidate = candidates[currentIndex];
 
   return (
-    <div>
+    <div className="card">
       <h2>Candidate Search</h2>
       {candidate && (
-        <div>
-          <img src={candidate.avatar_url} alt={candidate.login} width="100" />
+        <>
+          <img src={candidate.avatar_url} alt={candidate.login} width="150" />
           <h3>{candidate.name || candidate.login}</h3>
           <p>Company: {candidate.company || "Not specified"}</p>
           <p>Location: {candidate.location || "Not specified"}</p>
@@ -47,14 +47,19 @@ const CandidateSearch = () => {
             GitHub Profile
           </a>
           <div className="button-container">
-   <button className="accept" onClick={saveCandidate} data-symbol="+"></button>
-   <button className="reject" onClick={nextCandidate} data-symbol="−"></button>
-    </div>
-        </div>
+            <button className="accept" onClick={saveCandidate}>
+              <span>+</span>
+            </button>
+            <button className="reject" onClick={nextCandidate}>
+              <span>−</span>
+            </button>
+          </div>
+        </>
       )}
     </div>
   );
 };
 
 export default CandidateSearch;
+
 
