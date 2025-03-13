@@ -72,7 +72,7 @@ h2 {
   width: 420px;
   text-align: center;
   padding: 35px;
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -120,6 +120,7 @@ button {
   color: white;
 }
 
+/* Ensure button text is visible */
 button span {
   display: block;
   font-size: 2rem;
