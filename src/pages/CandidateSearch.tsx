@@ -46,10 +46,10 @@ const CandidateSearch = () => {
           <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
             GitHub Profile
           </a>
-          <div>
-            <button onClick={saveCandidate}>+</button>
-            <button onClick={nextCandidate}>-</button>
-          </div>
+          <div className="button-container">
+   <button className="accept" onClick={saveCandidate} data-symbol="+"></button>
+   <button className="reject" onClick={nextCandidate} data-symbol="−"></button>
+    </div>
         </div>
       )}
     </div>
